@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion Constructora</title>
+</head>
+<body>
+    <h1>Clase Constructora - KSV</h1>
+    <script type="text/javascript">
+
+        class Usuario 
+        {
+            constructor(nombre, apellido, libros, mascotas) 
+            {
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.libros = libros;
+                this.mascotas = mascotas;
+            }
+
+            //nombre completo del usuario
+            getFullName()
+            {
+                return `${this.nombre} ${this.apellido}`;
+            }
+
+            //añadir una mascota
+            addMascota()
+            {
+                this.mascotas.push('Boxer');
+            }
+
+            //obtener la cantidad de mascotas
+            getMascotas()
+            {
+                return this.mascotas.length;
+            }
+
+            //añadir un libro
+            addBook() { 
+                this.libros.push({ 
+                    nombre:'book', 
+                    autor:'autor'
+                });
+            }
+
+            //obtener autores de libros
+            getBook() 
+            {
+                let autores = "";
+                for (let i=0; i<this.libros.length; i++)
+                {
+                    autores += this.libros[i].nombre + ", ";
+                }
+                return autores;
+            }
+        }
+        
+        let anny = new Usuario('Kely', 'Segundo',[{nombre:'La Odisea', autor:'Homero'}, {nombre:'Hamlet', autor:'William'}], ['Pug']);
+        console.log(anny.getFullName());
+        anny.addMascota();
+        console.log(anny.getMascotas());
+        anny.addBook();
+        console.log(anny.getBook());
+
+    </script>
+</body>
+</html>

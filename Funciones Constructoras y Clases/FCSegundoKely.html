@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion Constructora</title>
+</head>
+<body>
+    <h1>Funcion Constructora - KSV</h1>
+    <script type="text/javascript">
+        function Usuario (nombre, apellido, libros, mascotas) 
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.libros = libros;
+            this.mascotas = mascotas;
+        }
+
+        //nombre completo del usuario
+        Usuario.prototype.getFullName = function () {
+            return `${this.nombre} ${this.apellido}`;
+        }
+
+        //añadir una mascota
+        Usuario.prototype.addMascota = function () {
+            this.mascotas.push('Boxer');
+        }
+
+        //obtener la cantidad de mascotas
+        Usuario.prototype.getMascotas = function () {
+            return this.mascotas.length;
+        }
+
+        //añadir un libro
+        Usuario.prototype.addBook = function () { 
+            this.libros.push({ 
+                nombre:'book', 
+                autor:'autor'
+            });
+        }
+
+        //obtener autores de libros
+        Usuario.prototype.getBook = function () {
+            let autores = "";
+            for (i=0; i<this.libros.length; i++)
+            {
+                autores += this.libros[i].nombre + ", ";
+            }
+            return autores;
+        }
+        let ana = new Usuario('Kely', 'Segundo',[{nombre:'La Odisea', autor:'Homero'}, {nombre:'Hamlet', autor:'William'}], ['Pug']);
+        console.log(ana.getFullName());
+        ana.addMascota();
+        console.log(ana.getMascotas());
+        ana.addBook();
+        console.log(ana.getBook());
+    </script>
+</body>
+</html>

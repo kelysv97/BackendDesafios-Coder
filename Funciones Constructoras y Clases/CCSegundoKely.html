@@ -27,9 +27,9 @@
             }
 
             //añadir una mascota
-            addMascota()
+            addMascota(mascota)
             {
-                this.mascotas.push('Boxer');
+                this.mascotas.push(mascota);
             }
 
             //obtener la cantidad de mascotas
@@ -39,31 +39,31 @@
             }
 
             //añadir un libro
-            addBook() { 
+            addBook(nombres, autor) { 
                 this.libros.push({ 
-                    nombre:'book', 
-                    autor:'autor'
+                    nombres: nombres, 
+                    autor: autor
                 });
             }
 
             //obtener autores de libros
             getBook() 
             {
-                let autores = "";
+                let autores = [];
                 for (let i=0; i<this.libros.length; i++)
                 {
-                    autores += this.libros[i].nombre + ", ";
+                    autores [i] = this.libros[i].nombres;
                 }
                 return autores;
             }
         }
         
-        let anny = new Usuario('Kely', 'Segundo',[{nombre:'La Odisea', autor:'Homero'}, {nombre:'Hamlet', autor:'William'}], ['Pug']);
-        console.log(anny.getFullName());
-        anny.addMascota();
-        console.log(anny.getMascotas());
-        anny.addBook();
-        console.log(anny.getBook());
+        let ana = new Usuario('Kely', 'Segundo',[{nombres:'Hamlet', autor:'William'}], ['Pug','Doki']);
+        console.log(ana.getFullName());
+        ana.addMascota('Boxer');
+        console.log(ana.getMascotas());
+        ana.addBook('La Odisea', 'Homero');
+        console.log(ana.getBook());
 
     </script>
 </body>

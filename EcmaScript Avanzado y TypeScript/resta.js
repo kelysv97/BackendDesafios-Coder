@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-exports.Resta = void 0;
 var Resta = /** @class */ (function () {
     //metodo constructor
     function Resta(a, b) {
@@ -13,5 +10,4 @@ var Resta = /** @class */ (function () {
     };
     return Resta;
 }());
-exports.Resta = Resta;
-//module.exports = Resta;
+module.exports = Resta;

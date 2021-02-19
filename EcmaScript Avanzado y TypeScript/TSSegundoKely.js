@@ -36,41 +36,47 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var operacion = function (tipoOperacion, a, b) {
-    if (tipoOperacion == "suma") {
-        Promise.resolve().then(function () { return require('./suma.js'); }).then(function (_a) {
-            var Suma = _a.Suma;
-            var sumas = new Suma(a, b);
-            console.log("La suma es: " + sumas.getResultado());
-        });
-    }
-    else if (tipoOperacion == "resta") {
-        Promise.resolve().then(function () { return require('./resta.js'); }).then(function (_a) {
-            var Resta = _a.Resta;
-            var restas = new Resta(a, b);
-            console.log("La resta es: " + restas.getResultado());
-        });
-    }
-    else {
-        console.log("No ingreso la operacion correcta");
-    }
+    return new Promise(function (resolve, reject) {
+        if (tipoOperacion == "suma") {
+            var Suma = require("./suma.js");
+            var suma = new Suma(a, b);
+            resolve("La suma es: " + suma.getResultado());
+        }
+        else if (tipoOperacion == "resta") {
+            var Resta = require("./resta.js");
+            var resta = new Resta(a, b);
+            resolve("La resta es: " + resta.getResultado());
+        }
+        else {
+            reject("No se puede sumar ni restar");
+        }
+    });
 };
-var operaciones = function (tipoOperacion, a, b) { return __awaiter(_this, void 0, void 0, function () {
-    var result, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+var operaciones = function () { return __awaiter(_this, void 0, void 0, function () {
+    var _a, _b, _c, _d, _e, _f, error_1;
+    return __generator(this, function (_g) {
+        switch (_g.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, operacion(tipoOperacion, a, b)];
+                _g.trys.push([0, 4, , 5]);
+                _b = (_a = console).log;
+                return [4 /*yield*/, operacion("suma", 8, 4)];
             case 1:
-                result = _a.sent();
-                console.log(result);
-                return [3 /*break*/, 3];
+                _b.apply(_a, [_g.sent()]);
+                _d = (_c = console).log;
+                return [4 /*yield*/, operacion("resta", 8, 4)];
             case 2:
-                error_1 = _a.sent();
+                _d.apply(_c, [_g.sent()]);
+                _f = (_e = console).log;
+                return [4 /*yield*/, operacion("division", 4, 2)];
+            case 3:
+                _f.apply(_e, [_g.sent()]);
+                return [3 /*break*/, 5];
+            case 4:
+                error_1 = _g.sent();
                 console.error(error_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
-operaciones("resta", 4, 5);
+operaciones();

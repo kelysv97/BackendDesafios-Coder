@@ -17,5 +17,4 @@ class Resta
         return (this.aa - this.bb);
     }
 }
-export {Resta}
-//module.exports = Resta;
+module.exports = Resta;

@@ -1,31 +1,32 @@
-const operacion = (tipoOperacion:string , a:number, b:number) => {
+const operacion = (tipoOperacion:string, a:number, b:number) => {
+  return new Promise ((resolve, reject) => {
 	  if(tipoOperacion == "suma") 
     {
-      import('./suma.js').then(({Suma})=> {
-        const sumas = new Suma(a,b);
-        console.log("La suma es: "+ sumas.getResultado());
-      });
+      const Suma = require("./suma.js");
+      let suma = new Suma(a,b);
+		  resolve("La suma es: "+ suma.getResultado());
 		}
     else if(tipoOperacion == "resta")
     {
-      import('./resta.js').then(({Resta})=> {
-        const restas = new Resta(a,b);
-        console.log("La resta es: "+ restas.getResultado());
-      });
+      const Resta = require("./resta.js");
+      let resta = new Resta(a,b);
+      resolve("La resta es: "+ resta.getResultado());
 		}
     else
     {
-      console.log("No ingreso la operacion correcta");
+      reject("No se puede sumar ni restar");
     }
+	})
 }
-const operaciones = async(tipoOperacion:string , a:number, b:number) => {
-	try 
+const operaciones = async() => {
+  try 
   {
-		const result = await operacion (tipoOperacion, a, b);
-		console.log(result);
+    console.log(await operacion ("suma", 8, 4));
+    console.log(await operacion ("resta", 8, 4));
+    console.log(await operacion ("division", 4, 2));
 	} catch (error) {
 		console.error(error);
 	}
 } 
-operaciones("resta", 4, 5);
+operaciones();
 

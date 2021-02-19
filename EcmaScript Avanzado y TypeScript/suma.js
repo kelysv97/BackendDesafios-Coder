@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-exports.Suma = void 0;
 var Suma = /** @class */ (function () {
     // metodo constructor
     function Suma(a, b) {
@@ -13,5 +10,4 @@ var Suma = /** @class */ (function () {
     };
     return Suma;
 }());
-exports.Suma = Suma;
-//module.exports = Suma;
+module.exports = Suma;

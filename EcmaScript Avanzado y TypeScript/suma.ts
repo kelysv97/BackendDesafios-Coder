@@ -17,5 +17,4 @@ class Suma
         return (this.aa + this.bb);
     }
 }
-export { Suma }
-//module.exports = Suma;
+module.exports = Suma;
